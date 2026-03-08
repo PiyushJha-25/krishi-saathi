@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useAppMode } from '../context/AppContext';
+import config from '../config';
 
 const STATES = [
     'Maharashtra', 'Punjab', 'Haryana', 'UP', 'MP',
@@ -257,7 +258,7 @@ export default function ScanCrop() {
 
             try {
                 // Attempt online scan
-                const res = await fetch('http://localhost:5000/api/scan/identify', {
+                const res = await fetch(`${config.API_BASE_URL}/api/scan/identify`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ image: imageBase64, state: selectedState, language }),
@@ -348,7 +349,7 @@ export default function ScanCrop() {
 
         setVoiceLoading(true);
         try {
-            const res = await fetch('http://localhost:5000/api/scan/voice-summary', {
+            const res = await fetch(`${config.API_BASE_URL}/api/scan/voice-summary`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

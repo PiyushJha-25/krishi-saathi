@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, Mic, ChevronLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAppMode } from '../context/AppContext';
+import config from '../config';
 
 interface Message {
     id: string;
@@ -76,7 +77,7 @@ export default function SahayakChat() {
                 content: [{ text: m.text }]
             }));
 
-            const response = await fetch('http://localhost:5000/api/chat/message', {
+            const response = await fetch(`${config.API_BASE_URL}/api/chat/message`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: text, conversationHistory: history })

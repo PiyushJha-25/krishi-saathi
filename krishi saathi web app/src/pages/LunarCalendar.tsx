@@ -1,4 +1,3 @@
-import React from 'react';
 import { PlayCircle, Calendar, Droplets, Leaf, ShieldCheck, Settings, Lock, Star, Info } from 'lucide-react';
 import BottomNavBar from '../components/BottomNavBar';
 

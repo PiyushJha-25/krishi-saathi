@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useAppMode } from '../context/AppContext';
+import config from '../config';
 
 const STATES: { name: string; key: 'state_maharashtra' | 'state_punjab' | 'state_haryana' | 'state_up' | 'state_mp' | 'state_rajasthan' | 'state_bihar' | 'state_gujarat' | 'state_karnataka' | 'state_ap' }[] = [
     { name: 'Maharashtra', key: 'state_maharashtra' },
@@ -156,7 +157,7 @@ export default function MandiVoice() {
             const matchingCrop = CROP_SUGGESTIONS.find(c => t(c.key).toLowerCase() === cropInput.toLowerCase() || c.name.toLowerCase() === cropInput.toLowerCase());
             const finalCropName = matchingCrop ? matchingCrop.name : cropInput.trim();
 
-            const res = await fetch('http://localhost:5000/api/mandi/voice-advice', {
+            const res = await fetch(`${config.API_BASE_URL}/api/mandi/voice-advice`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -211,7 +212,7 @@ export default function MandiVoice() {
                 return;
             }
 
-            const res = await fetch('http://localhost:5000/api/mandi/advice', {
+            const res = await fetch(`${config.API_BASE_URL}/api/mandi/advice`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

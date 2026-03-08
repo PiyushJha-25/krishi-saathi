@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:5000/api/diary';
+import config from '../config';
+
+const BASE_URL = `${config.API_BASE_URL}/api/diary`;
 
 export interface DiaryEntry {
     id?: number;

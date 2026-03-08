@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mic, CloudSun, Bell, IndianRupee, X, Scan, BookText, AlertTriangle, Bug, Moon, Recycle, Users, Share2, Cloud, Cpu } from 'lucide-react';
+import { Mic, CloudSun, Bell, IndianRupee, X, Scan, BookText, Bug, Moon, Recycle, Cloud, Cpu } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useAppMode } from '../context/AppContext';
 
